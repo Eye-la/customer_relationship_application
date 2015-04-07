@@ -7,12 +7,15 @@ class Crm # kind of acts like view
     @rolodex = Rolodex.new
   end 
 
-  # def self.run
-  #   my_crm = new
-  #   my_crm.run_main_menu
-  # end
+  def self.run
+    my_crm = new
+    my_crm.run_main_menu
+  end
 
 	def main_menu
+    puts "----------------------------"
+    puts "         Main Menu"
+    puts "----------------------------"
     puts "[1] Add new contact"
     puts "[2] Modify existing contact"
     puts "[3] Delete a contact"
@@ -20,7 +23,8 @@ class Crm # kind of acts like view
     puts "[5] Display contact"
     puts "[6] Disaply an attribute"
     puts "[7] Exit"
-    puts "Enter a numer:"
+    puts "----------------------------"
+    print "Enter a numer:"
 	end
 
   def run_main_menu
@@ -53,7 +57,7 @@ class Crm # kind of acts like view
     contact = Contact.new(first_name, last_name, email, notes)
     @rolodex.add_contact(contact)
     puts "New contact created."
-    puts "ID: contact_id"
+    puts "\n"
   end
 
   def modify_contact
@@ -76,6 +80,7 @@ class Crm # kind of acts like view
         modify_option(user_selected)
         
         puts "Contact updated"
+        puts "\n"
       else
         run_main_menu
       end
@@ -83,10 +88,15 @@ class Crm # kind of acts like view
   end
 
   def modify_menu
+    puts "\n"
+    puts "--------------------"
+    puts "Select an attribute:"
+    puts "--------------------"
     puts "[1] First name"
     puts "[2] Last name"
     puts "[3] Email"
     puts "[4] Notes"
+    puts "--------------------"
     puts "Enter a number:"  
   end
 
@@ -124,6 +134,7 @@ class Crm # kind of acts like view
     contact_id = gets.chomp.to_i
     contact = @rolodex.find(contact_id)
     puts contact 
+    puts "\n"
   end
 
   def display_attr
@@ -146,11 +157,10 @@ class Crm # kind of acts like view
 
 
   def exit
-    puts "\e[H\e[2J" 
+    abort
   end
 
 end
 
-my_crm = Crm.new
-my_crm.run_main_menu
+Crm.run
 

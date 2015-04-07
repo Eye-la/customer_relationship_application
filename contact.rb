@@ -17,6 +17,7 @@ class Contact # kind of acting like a model
     puts "Notes: #{notes}"  
   end
 
+
 	#check for blank value
   # def inspect 	
 	# end

@@ -10,6 +10,7 @@ class Rolodex # kind of acting like a controller
 	def add_contact(contact)
 		contact.id = @id
 		@contacts << contact
+    puts "ID: #{@id}"
 		@id += 1
 	end
 		
@@ -22,7 +23,7 @@ class Rolodex # kind of acting like a controller
   end
 
 	def display		
-    puts @contacts
+    puts "#{contact.id}, #{contact.first_name}, #{contact.last_name}, #{contact.email}, #{contact.notes}"
 	end
 
 end
